@@ -1,0 +1,6 @@
+.idea
+.run
+/**/*.iml
+**/target/
+**/out/
+/**/*.cfg
