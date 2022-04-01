@@ -83,7 +83,8 @@ public class Chess {
 	 * TODO initializeBoard just draws pieces but does not manage the game
 	 * 1) PieceType should be Enumerator
 	 * 2) We need to create game management -> then we can put pieces on the board
-	 * 3)
+	 * 3) Then create ChessPiece and extend it to child King and other pieces -> They contain rules of their own movement
+	 * 4) Then move the pieces on board
 	 */
 	public static void initializeBoard() {
 		//Draw the board
