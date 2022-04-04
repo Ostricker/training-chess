@@ -1,5 +1,13 @@
+package chess;
 
-public class ChessPiece {
+import chess.pieces.PieceType;
+
+import java.util.List;
+
+public abstract class ChessPiece {
+
+	private final Player myPlayer;
+	private final PieceType type;
 
 	private int boardRank; //1 to 8
 	private char boardFile; //A-H
@@ -8,16 +16,20 @@ public class ChessPiece {
 	private int xCoord; // Calculated from boardFileNum
 	private int yCoord; // Calculated from boardRank
 	
-	public boolean isAlive = true; //Tracks if piece is alive
-	public boolean isWhite;
-	
-	public String type = "n/a";
-	
+	private boolean isAlive = true; //Tracks if piece is alive
+	private final boolean isWhite;
+
 	//Constructor
-	public ChessPiece(char file, int rank) {
+	public ChessPiece(Player player, PieceType type, char file, int rank) {
+		this.myPlayer = player;
+		this.isWhite = myPlayer.isWhite();
+		this.type = type;
 		setBoardRank(rank);
 		setBoardFile(file);
 	}
+
+	//Returns if move is valid, must be Overridden, will most likely use convertFileToInt()
+	public abstract boolean isValidMove(char file, int rank, List<ChessPiece> listOfPieces);
 	
 	//Converts from file (a char) to the int representation
 	public int convertFileToInt(char file) {
@@ -42,11 +54,6 @@ public class ChessPiece {
 				//Incorrect file entered
 				return 0;
 		}
-	}
-	
-	//Returns if move is valid, must be Overridden, will most likely use convertFileToInt()
-	public boolean isValidMove(char file, int rank, ChessPiece[] pieces) {
-		return false;
 	}
 
 	//Setter for boardRank that also sets yCoord
@@ -77,5 +84,29 @@ public class ChessPiece {
 	public int getyCoord() {
 		return yCoord;
 	}
-	
+
+	public PieceType getType()
+	{
+		return type;
+	}
+
+	public int getBoardFileNum()
+	{
+		return boardFileNum;
+	}
+
+	public boolean isAlive()
+	{
+		return isAlive;
+	}
+
+	public boolean isWhite()
+	{
+		return isWhite;
+	}
+
+	public Player getMyPlayer()
+	{
+		return myPlayer;
+	}
 }

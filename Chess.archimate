@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="Chess" id="id-eb1d033f2c9a4717b7e85fe6fcc6ba47" version="4.9.0">
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="chess.Chess" id="id-eb1d033f2c9a4717b7e85fe6fcc6ba47" version="4.9.0">
   <folder name="Strategy" id="id-9f83b5705c264c7fb7901eeb593b53bd" type="strategy"/>
   <folder name="Business" id="id-a0f1d62b5e48405ba23c30fac9a7e0e7" type="business">
     <element xsi:type="archimate:BusinessObject" name="Business Object" id="id-f66db948127d44c1b98e60b80e5b794e"/>
   </folder>
   <folder name="Application" id="id-3839c2675020437a9260180285ca9b3a" type="application">
     <element xsi:type="archimate:DataObject" name="Data Object" id="id-390254327804470c9735241ce175cc29"/>
-    <element xsi:type="archimate:ApplicationComponent" name="class Chess" id="id-0a8aa557aef247a7931e30721c0a540d"/>
+    <element xsi:type="archimate:ApplicationComponent" name="class chess.Chess" id="id-0a8aa557aef247a7931e30721c0a540d"/>
     <element xsi:type="archimate:ApplicationProcess" name="Application Process" id="id-68649a92618243be9f7e5fd20d9ba31d"/>
     <element xsi:type="archimate:DataObject" name="class DrawingPanel" id="id-0a6d0d6a779642b281b8d3c61c20ec4b"/>
     <element xsi:type="archimate:ApplicationService" name="onClick((x, y) -> lambda) " id="id-ec4a3a87d6174e68813c704fe376900a"/>
@@ -18,7 +18,7 @@
     <element xsi:type="archimate:ApplicationService" name="onClick((x, y) -> lambda)  (copy) (copy)" id="id-302b973f83a745e29557a67886137533"/>
     <element xsi:type="archimate:ApplicationService" name="setColor(color) (copy) (copy)" id="id-f26a81d9decc4b8aa47a0fee2dff5798"/>
     <element xsi:type="archimate:ApplicationService" name="setColor(color) (copy) (copy) (copy)" id="id-584ec49bc71b49b5a21bd7fdc9f842bb"/>
-    <element xsi:type="archimate:DataObject" name="Chess" id="id-e72a682d15204b02a400695cd65a8c5e"/>
+    <element xsi:type="archimate:DataObject" name="chess.Chess" id="id-e72a682d15204b02a400695cd65a8c5e"/>
     <element xsi:type="archimate:ApplicationService" name="main()" id="id-ee02fd4d94ac4a4d94901c49ca68de89"/>
     <element xsi:type="archimate:ApplicationService" name="initializeBoard()" id="id-6e50244427b04cc78f2e93e398ae995c"/>
     <element xsi:type="archimate:ApplicationService" name="drawBoard()" id="id-c7d891b08dfd407f95762a5f2ddc1eb7"/>
@@ -26,11 +26,11 @@
     <element xsi:type="archimate:ApplicationService" name="dpPrint(string)" id="id-30017aaa20344da5a8d06dcac9868f7b"/>
     <element xsi:type="archimate:ApplicationService" name="handleClickEvent(x, y)" id="id-602db31ca5814579b77eed4ecf8b97cc"/>
     <element xsi:type="archimate:ApplicationService" name="drawPiece()" id="id-eee7cde32a7a4635b9e0ffdefd1fc9fc"/>
-    <element xsi:type="archimate:DataObject" name="abstract class ChessPiece" id="id-4f3465586a1e4ecb8ebd95876fa7a268"/>
+    <element xsi:type="archimate:DataObject" name="abstract class chess.ChessPiece" id="id-4f3465586a1e4ecb8ebd95876fa7a268"/>
     <element xsi:type="archimate:ApplicationService" name="abstract isValidMove()" id="id-35810a6ef6eb418b9a90b6feb8e1a3a4"/>
     <element xsi:type="archimate:ApplicationService" name="setBoardRank()" id="id-51b9059cdf364d74ad488763b6ce937d"/>
     <element xsi:type="archimate:ApplicationService" name="setBoardFile()" id="id-14bb68c8cfc0471f9262d229792be41b"/>
-    <element xsi:type="archimate:DataObject" name="class King" id="id-b40e666493d74ce39790c9f04b195cc2"/>
+    <element xsi:type="archimate:DataObject" name="class chess.pieces.King" id="id-b40e666493d74ce39790c9f04b195cc2"/>
     <element xsi:type="archimate:ApplicationService" name="override isValidMove()" id="id-cd7c88a2a22f4a3690400b6cf8ba2e04"/>
     <element xsi:type="archimate:ApplicationService" name="isValidMove()" id="id-c98553a3955e4e26968009b762a78fbd"/>
     <element xsi:type="archimate:ApplicationService" name="setBoardFile() (copy)" id="id-de4b9f247aa5404186f9620179c7e790"/>
