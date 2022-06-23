@@ -1,5 +1,5 @@
 
-public class ChessPiece {
+public abstract class ChessPiece {
 
 	private int boardRank; //1 to 8
 	private char boardFile; //A-H
@@ -45,9 +45,7 @@ public class ChessPiece {
 	}
 	
 	//Returns if move is valid, must be Overridden, will most likely use convertFileToInt()
-	public boolean isValidMove(char file, int rank, ChessPiece[] pieces) {
-		return false;
-	}
+	public abstract boolean isValidMove(char file, int rank, ChessPiece[] pieces);
 
 	//Setter for boardRank that also sets yCoord
 	public void setBoardRank(int boardRank) {

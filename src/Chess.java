@@ -18,7 +18,9 @@ public class Chess {
 		initializeBoard();
 		
 		//Setup graphicAPI.DrawingPanel to handle clicks
-		panel.onClick( (x, y) -> handleClickEvent(x, y) );
+		panel.onClick( (x, y) -> {
+			handleClickEvent(x, y);
+		});
 		
 		/*
 		// Very Useful Code
@@ -77,63 +79,67 @@ public class Chess {
 			else if ( x > 450 && x < 500){ file = 'H';}
 			dpPrint("Valid Click: " + file + rank);
 		}
+
+
+
 	}
 
 	/**
 	 * TODO initializeBoard just draws pieces but does not manage the game
-	 * 1) PieceType should be Enumerator
 	 * 2) We need to create game management -> then we can put pieces on the board
 	 * 3) Then create ChessPiece and extend it to child King and other pieces -> They contain rules of their own movement
 	 * 4) Then move the pieces on board
 	 */
+
+
 	public static void initializeBoard() {
 		//Draw the board
 		drawBoard();
 		//Draw Console Area
 		dpPrint("");
 		//Draw black pieces
-		drawPiece(false, "King", 100 + 4*GRID_SIZE, 100 + 0*GRID_SIZE); //King
-		drawPiece(false, "Queen", 100 + 3*GRID_SIZE, 100 + 0*GRID_SIZE); //Queen
+		drawPiece(false, PieceType.KING, 100 + 4*GRID_SIZE, 100 + 0*GRID_SIZE); //King
+		drawPiece(false, PieceType.QUEEN, 100 + 3*GRID_SIZE, 100 + 0*GRID_SIZE); //Queen
 
-		drawPiece(false, "Bishop", 100 + 2*GRID_SIZE, 100 + 0*GRID_SIZE); //Left Bishop
-		drawPiece(false, "Bishop", 100 + 5*GRID_SIZE, 100 + 0*GRID_SIZE); //Right Bishop
+		drawPiece(false, PieceType.BISHOP, 100 + 2*GRID_SIZE, 100 + 0*GRID_SIZE); //Left Bishop
+		drawPiece(false, PieceType.BISHOP, 100 + 5*GRID_SIZE, 100 + 0*GRID_SIZE); //Right Bishop
 
-		drawPiece(false, "Rook", 100 + 0*GRID_SIZE, 100 + 0*GRID_SIZE); //Left Rook
-		drawPiece(false, "Rook", 100 + 7*GRID_SIZE, 100 + 0*GRID_SIZE); //Right Rook
+		drawPiece(false, PieceType.ROOK, 100 + 0*GRID_SIZE, 100 + 0*GRID_SIZE); //Left Rook
+		drawPiece(false, PieceType.ROOK, 100 + 7*GRID_SIZE, 100 + 0*GRID_SIZE); //Right Rook
 
-		drawPiece(false, "Knight", 100 + 1*GRID_SIZE, 100 + 0*GRID_SIZE); //Left Knight
-		drawPiece(false, "Knight", 100 + 6*GRID_SIZE, 100 + 0*GRID_SIZE); //Right Knight
+		drawPiece(false, PieceType.KNIGHT, 100 + 1*GRID_SIZE, 100 + 0*GRID_SIZE); //Left Knight
+		drawPiece(false, PieceType.KNIGHT, 100 + 6*GRID_SIZE, 100 + 0*GRID_SIZE); //Right Knight
 
-		drawPiece(false, "Pawn", 100 + 0*GRID_SIZE, 100 + 1*GRID_SIZE); //Pawns
-		drawPiece(false, "Pawn", 100 + 1*GRID_SIZE, 100 + 1*GRID_SIZE);
-		drawPiece(false, "Pawn", 100 + 2*GRID_SIZE, 100 + 1*GRID_SIZE);
-		drawPiece(false, "Pawn", 100 + 3*GRID_SIZE, 100 + 1*GRID_SIZE);
-		drawPiece(false, "Pawn", 100 + 4*GRID_SIZE, 100 + 1*GRID_SIZE);
-		drawPiece(false, "Pawn", 100 + 5*GRID_SIZE, 100 + 1*GRID_SIZE);
-		drawPiece(false, "Pawn", 100 + 6*GRID_SIZE, 100 + 1*GRID_SIZE);
-		drawPiece(false, "Pawn", 100 + 7*GRID_SIZE, 100 + 1*GRID_SIZE);
+		drawPiece(false, PieceType.PAWN, 100 + 0*GRID_SIZE, 100 + 1*GRID_SIZE); //Pawns
+		drawPiece(false, PieceType.PAWN, 100 + 1*GRID_SIZE, 100 + 1*GRID_SIZE);
+		drawPiece(false, PieceType.PAWN, 100 + 2*GRID_SIZE, 100 + 1*GRID_SIZE);
+		drawPiece(false, PieceType.PAWN, 100 + 3*GRID_SIZE, 100 + 1*GRID_SIZE);
+		drawPiece(false, PieceType.PAWN, 100 + 4*GRID_SIZE, 100 + 1*GRID_SIZE);
+		drawPiece(false, PieceType.PAWN, 100 + 5*GRID_SIZE, 100 + 1*GRID_SIZE);
+		drawPiece(false, PieceType.PAWN, 100 + 6*GRID_SIZE, 100 + 1*GRID_SIZE);
+		drawPiece(false, PieceType.PAWN, 100 + 7*GRID_SIZE, 100 + 1*GRID_SIZE);
 
 		//Draw white pieces
-		drawPiece(true, "King", 100 + 4*GRID_SIZE, 100 + 7*GRID_SIZE); //King
-		drawPiece(true, "Queen", 100 + 3*GRID_SIZE, 100 + 7*GRID_SIZE); //Queen
+		drawPiece(true, PieceType.QUEEN, 100 + 4*GRID_SIZE, 100 + 7*GRID_SIZE); //King
+		drawPiece(true, PieceType.QUEEN, 100 + 3*GRID_SIZE, 100 + 7*GRID_SIZE); //Queen
 
-		drawPiece(true, "Bishop", 100 + 2*GRID_SIZE, 100 + 7*GRID_SIZE); //Left Bishop
-		drawPiece(true, "Bishop", 100 + 5*GRID_SIZE, 100 + 7*GRID_SIZE); //Right Bishop
+		drawPiece(true, PieceType.BISHOP, 100 + 2*GRID_SIZE, 100 + 7*GRID_SIZE); //Left Bishop
+		drawPiece(true, PieceType.BISHOP, 100 + 5*GRID_SIZE, 100 + 7*GRID_SIZE); //Right Bishop
 
-		drawPiece(true, "Rook", 100 + 0*GRID_SIZE, 100 + 7*GRID_SIZE); //Left Rook
-		drawPiece(true, "Rook", 100 + 7*GRID_SIZE, 100 + 7*GRID_SIZE); //Right Rook
+		drawPiece(true, PieceType.ROOK, 100 + 0*GRID_SIZE, 100 + 7*GRID_SIZE); //Left Rook
+		drawPiece(true, PieceType.ROOK, 100 + 7*GRID_SIZE, 100 + 7*GRID_SIZE); //Right Rook
 
-		drawPiece(true, "Knight", 100 + 1*GRID_SIZE, 100 + 7*GRID_SIZE); //Left Knight
-		drawPiece(true, "Knight", 100 + 6*GRID_SIZE, 100 + 7*GRID_SIZE); //Right Knight
+		drawPiece(true, PieceType.KNIGHT, 100 + 1*GRID_SIZE, 100 + 7*GRID_SIZE); //Left Knight
+		drawPiece(true, PieceType.KNIGHT, 100 + 6*GRID_SIZE, 100 + 7*GRID_SIZE); //Right Knight
 
-		drawPiece(true, "Pawn", 100 + 0*GRID_SIZE, 100 + 6*GRID_SIZE); //Pawns
-		drawPiece(true, "Pawn", 100 + 1*GRID_SIZE, 100 + 6*GRID_SIZE);
-		drawPiece(true, "Pawn", 100 + 2*GRID_SIZE, 100 + 6*GRID_SIZE);
-		drawPiece(true, "Pawn", 100 + 3*GRID_SIZE, 100 + 6*GRID_SIZE);
-		drawPiece(true, "Pawn", 100 + 4*GRID_SIZE, 100 + 6*GRID_SIZE);
-		drawPiece(true, "Pawn", 100 + 5*GRID_SIZE, 100 + 6*GRID_SIZE);
-		drawPiece(true, "Pawn", 100 + 6*GRID_SIZE, 100 + 6*GRID_SIZE);
-		drawPiece(true, "Pawn", 100 + 7*GRID_SIZE, 100 + 6*GRID_SIZE);
+		drawPiece(true, PieceType.PAWN, 100 + 0*GRID_SIZE, 100 + 6*GRID_SIZE); //Pawns
+		drawPiece(true, PieceType.PAWN, 100 + 1*GRID_SIZE, 100 + 6*GRID_SIZE);
+		drawPiece(true, PieceType.PAWN, 100 + 2*GRID_SIZE, 100 + 6*GRID_SIZE);
+		drawPiece(true, PieceType.PAWN, 100 + 3*GRID_SIZE, 100 + 6*GRID_SIZE);
+		drawPiece(true, PieceType.PAWN, 100 + 4*GRID_SIZE, 100 + 6*GRID_SIZE);
+		drawPiece(true, PieceType.PAWN, 100 + 5*GRID_SIZE, 100 + 6*GRID_SIZE);
+		drawPiece(true, PieceType.PAWN, 100 + 6*GRID_SIZE, 100 + 6*GRID_SIZE);
+		drawPiece(true, PieceType.PAWN, 100 + 7*GRID_SIZE, 100 + 6*GRID_SIZE);
 	}
 
 	/**
@@ -181,36 +187,39 @@ public class Chess {
 		}
 	}
 
-	/**
-	 * TODO PieceType as Enum
-	 * @param isWhite
-	 * @param pieceType
-	 * @param x
-	 * @param y
-	 */
-	public static void drawPiece(boolean isWhite, String pieceType, int x, int y) {
+
+	enum PieceType{
+		KING,
+		QUEEN,
+		ROOK,
+		KNIGHT,
+		BISHOP,
+		PAWN,
+	}
+
+	public static void drawPiece(boolean isWhite,  PieceType type, int x, int y) {
 		if(isWhite) {
 			g.setColor(Color.WHITE);
 		}
 		else {
 			g.setColor(Color.BLACK);
 		}
-		switch (pieceType) {
-			case "King":
+		switch (type) {
+			case KING:
 				g.fillPolygon(new int[] {17+x, 25+x, 33+x}, new int[] {43+y, 6+y, 43+y}, 3); //Body
 				g.fillOval(12 + x, 41 + y, 26, 6); //Base
 				g.fillOval(18 + x, 17 + y, 14, 4); //Shoulder 01
 				g.fillRect(23 + x, 5 + y, 4, 25); //Cross
 				g.fillRect(19 + x, 9 + y, 12, 4); //Cross
 				break;
-			case "Queen":
+			case QUEEN:
 				g.fillPolygon(new int[] {17+x, 25+x, 33+x}, new int[] {43+y, 6+y, 43+y}, 3); //Body
 				g.fillOval(12 + x, 41 + y, 26, 6); //Base
 				g.fillOval(17 + x, 17 + y, 16, 4); //Shoulder 01
 				g.fillOval(17 + x, 25 + y, 16, 4); //Shoulder 02
 				g.fillOval(20 + x, 5 + y, 10, 10); //Head
 				break;
-			case "Rook":
+			case ROOK:
 				g.fillRect(15 + x, 17 + y, 20, 30); //Body
 				g.fillRect(10 + x, 42 + y, 30, 5); //Bottom Black
 				g.fillRect(10 + x, 12 + y, 30, 12); //Top Block
@@ -219,18 +228,18 @@ public class Chess {
 				g.fillRect(27 + x, 7 + y, 5, 5); //Pillar Three
 				g.fillRect(35 + x, 7 + y, 5, 5); //Pillar Four
 				break;
-			case "Bishop":
+			case BISHOP:
 				g.fillPolygon(new int[] {17+x, 25+x, 33+x}, new int[] {43+y, 16+y, 43+y}, 3); //Body
 				g.fillOval(12 + x, 41 + y, 26, 6); //Base
 				g.fillPolygon(new int[] {18+x, 25+x, 32+x, 25+x}, new int[] {17+y, 27+y, 17+y, 8+y}, 4); //Head
 				break;
-			case "Knight":
+			case KNIGHT:
 				g.fillOval(8 + x, 39 + y, 35, 8); //Base
 				g.fillPolygon(new int[] {15+x, 15+x, 25+x, 35+x}, new int[] {42+y, 17+y, 12+y, 40+y}, 4); //Body
 				g.fillOval(12 + x, 7 + y, 16, 16); //Head
 				g.fillPolygon(new int[] {25+x, 20+x, 40+x, 35+x}, new int[] {21+y, 7+y, 16+y, 23+y}, 4); //Face
 				break;
-			case "Pawn":
+			case PAWN:
 				g.fillPolygon(new int[] {17+x, 27+x, 37+x}, new int[] {40+y, 10+y, 40+y}, 3); //Center Triangle
 				g.fillOval(22 + x, 8 + y, 10, 10); //Top Hat
 				g.fillOval(13 + x, 35 + y, 28, 8); //Base
