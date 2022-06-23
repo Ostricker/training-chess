@@ -18,7 +18,7 @@ public class Chess {
 		initializeBoard();
 		
 		//Setup graphicAPI.DrawingPanel to handle clicks
-		panel.onClick( (x, y) -> handleClickEvent(x, y) );
+		panel.onClick(Chess::handleClickEvent);
 		
 		/*
 		// Very Useful Code
